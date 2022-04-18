@@ -1,5 +1,4 @@
 # 如何编写一个shit client
-
 ### 💩 你应该未雨绸缪，提前混淆你的代码
 防止您的代码被Skidder反编译
 
@@ -83,3 +82,77 @@ public class AimAssist extends Module{
     //中间省略50行...
 }
 ```
+### 💩 你应该删除任何可能会被反作弊注意到的内容
+![以下代码引用自BapeClient Killaura](https://github.com/cubk/BapeClient/blob/main/src/main/java/mc/bape/modules/blatant/Killaura.java)
+
+_Good 👍🏻_
+
+```java
+            if(ModuleManager.getModule("Criticals").getState() && Criticals.canJump() && mc.thePlayer.onGround)
+                mc.thePlayer.jump();
+            if(this.swing.getValue()){
+                mc.thePlayer.swingItem();
+            }
+//            mc.getNetHandler().addToSendQueue(new C02PacketUseEntity(target, C02PacketUseEntity.Action.ATTACK));
+//            if ((Boolean) this.autoblock.getValue()){
+//                if (mc.thePlayer.getCurrentEquippedItem() == null) {
+//                    return;
+//                }
+//                if (!(mc.thePlayer.getCurrentEquippedItem().getItem() instanceof ItemSword)) {
+//                    return;
+//                }
+//                if (target != null
+//                        && (mc.thePlayer.getHeldItem() != null
+//                        && mc.thePlayer.getHeldItem().getItem() instanceof ItemSword
+//                        && this.autoblock.getValue() || mc.thePlayer.isBlocking())) {
+//                    mc.getNetHandler().addToSendQueue(new C08PacketPlayerBlockPlacement(mc.thePlayer.inventory.getCurrentItem()));
+//                    mc.thePlayer.getCurrentEquippedItem().useItemRightClick(mc.theWorld, mc.thePlayer);
+//                }
+//            }
+}
+```
+
+_Bad 👎🏻_
+
+```java
+            if(ModuleManager.getModule("Criticals").getState() && Criticals.canJump() && mc.thePlayer.onGround)
+                mc.thePlayer.jump();
+            if(this.swing.getValue()){
+                mc.thePlayer.swingItem();
+            }
+            mc.getNetHandler().addToSendQueue(new C02PacketUseEntity(target, C02PacketUseEntity.Action.ATTACK));
+```
+
+### 💩 你应该使用非传统的Name space体现你的客户端走在时代前沿
+_Good 👍🏻_
+
+```java
+package mc.bape.Gui;
+package Fuck.You.Loser;
+package 傻逼.草拟吗.你妈死了;
+package dont.Hurt.me
+```
+
+_Bad 👎🏻_
+
+```java
+package today.getvapu;
+package com.cubk;
+package ml.mckuhei;
+```
+
+### 💩 尽可能的在注释留下“为什么”而不是“是什么”和“问题”
+
+_Good 👍🏻_
+
+```java
+// 为什么会NullPointerException
+```
+
+_Bad 👎🏻_
+
+```java
+// 这里有问题，需要修改，不然没法进服务器
+// 字体渲染必须修复才能打开指南针
+```
+
