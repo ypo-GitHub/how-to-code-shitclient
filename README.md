@@ -1,4 +1,30 @@
 # 如何编写一个shit client
+### 💩 你应该手动管理Value，而不是依赖低效的反射
+
+_Good 👍🏻_
+
+```java
+public Flight() {
+    /***/
+    addValues(new Value[] { mode, timeboost, spoof, prey, mark});
+}
+```
+
+_Bad 👎🏻_
+
+```java
+for (final Field field : createdModule.getClass().getDeclaredFields()) {
+    try {
+            field.setAccessible(true);
+            final Object obj = field.get(createdModule);
+            if (obj instanceof Value) createdModule.getValues().add((Value) obj);
+    } catch (IllegalAccessException e) {
+        e.printStackTrace();
+    }
+}
+```
+
+
 ### 💩 你应该未雨绸缪，提前混淆你的代码
 防止您的代码被Skidder反编译
 
