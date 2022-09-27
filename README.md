@@ -153,10 +153,7 @@ _Bad 👎🏻_
 _Good 👍🏻_
 
 ```java
-package just.monika.主播你有反编译我代码的时间还不如自己写一个端子
-package just.monika.开裂我端子的反编译我几行代码死几个妈
-package just.monika.反编译我代码油饼食不食
-package just.monika.主播你有反编译我代码的时间还不如自己写一个端子.主播你IQ行不行啊
+package sb.cnm.nmsl
 ```
 
 _Bad 👎🏻_
@@ -194,5 +191,26 @@ _Bad 👎🏻_
 
 ```java
 AltPanels altPanels = new AltPanels();
+```
+
+### 💩 使用高效的if而不是低效的swtich
+
+_Good 👍🏻_
+
+```java
+if(a==1){
+    xxx1()
+}else if(a==2){
+    xxx2()
+}else if .....
+```
+
+_Bad 👎🏻_
+
+```java
+swtich(a){
+case 1:xxx1();break;
+case 2:xxx2();break;
+case ...:...;
 ```
 
