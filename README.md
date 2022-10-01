@@ -109,7 +109,7 @@ public class AimAssist extends Module{
 }
 ```
 ### 💩 你应该删除任何可能会被反作弊注意到的内容
-![以下代码引用自BapeClient Killaura](https://github.com/cubk/BapeClient/blob/main/src/main/java/mc/bape/modules/blatant/Killaura.java)
+[以下代码引用自BapeClient Killaura](https://github.com/cubk/BapeClient/blob/main/src/main/java/mc/bape/modules/blatant/Killaura.java)
 
 _Good 👍🏻_
 
@@ -153,7 +153,11 @@ _Bad 👎🏻_
 _Good 👍🏻_
 
 ```java
-package sb.cnm.nmsl
+package just.monika.主播你有反编译我代码的时间还不如自己写一个端子
+package just.monika.开裂我端子的反编译我几行代码死几个妈
+package just.monika.反编译我代码油饼食不食
+package just.monika.主播你有反编译我代码的时间还不如自己写一个端子.主播你IQ行不行啊
+package ExploreSurvival.Game.Load;
 ```
 
 _Bad 👎🏻_
@@ -161,6 +165,7 @@ _Bad 👎🏻_
 ```java
 package today.getvapu;
 package com.client;
+package studios.mcmodule;
 ```
 
 ### 💩 尽可能的在注释留下“为什么”而不是“是什么”和“问题”
