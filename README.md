@@ -1,4 +1,41 @@
 # 如何编写一个shit client
+
+### 💩 你应避免缩进
+防止您的代码被Skidder反编译后看得懂
+_Good 👍🏻_
+
+```java
+class AutoVelocity : Module() {
+    @EventTarget
+    fun onUpdate(event: UpdateEvent?) {
+        val velocity = moduleManager.getModule(Velocity::class.java) as Velocity
+
+if (mc.thePlayer!!.hurtTime <= 0 && mc.thePlayer!!.onGround){
+    velocity.state = true
+}else{
+    velocity.state = false
+}
+    }
+    }
+```
+
+_Bad 👎🏻_
+
+```java
+class AutoVelocity : Module() {
+    @EventTarget
+    fun onUpdate(event: UpdateEvent?) {
+        val velocity = moduleManager.getModule(Velocity::class.java) as Velocity
+
+        if (mc.thePlayer!!.hurtTime <= 0 && mc.thePlayer!!.onGround){
+            velocity.state = true
+        }else{
+            velocity.state = false
+        }
+    }
+}
+```
+
 ### 💩 你应该手动管理Value，而不是依赖低效的反射
 
 _Good 👍🏻_
