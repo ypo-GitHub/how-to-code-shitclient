@@ -1,7 +1,33 @@
 # 如何编写一个shit client
 
+### 💩 你应把i18n国际化变成l10n本地化
+防止外国skidder反编译看得懂
+
+_Good 👍🏻_
+
+```java
+displayName="这是个模块";
+```
+
+_Bad 👎🏻_
+
+```java
+displayName=I18n.get("this_is_a_module");
+```
+```json
+zh_cn.json
+{
+    "this_is_a_module":"这是个模块"
+}
+en_us.json
+{
+    "this_is_a_module":"This Is A Module"
+}
+```
+
 ### 💩 你应避免缩进
 防止您的代码被Skidder反编译后看得懂
+
 _Good 👍🏻_
 
 ```java
@@ -190,10 +216,7 @@ _Bad 👎🏻_
 _Good 👍🏻_
 
 ```java
-package just.monika.主播你有反编译我代码的时间还不如自己写一个端子
-package just.monika.开裂我端子的反编译我几行代码死几个妈
-package just.monika.反编译我代码油饼食不食
-package just.monika.主播你有反编译我代码的时间还不如自己写一个端子.主播你IQ行不行啊
+package sb.cnm.nmsl
 package ExploreSurvival.Game.Load;
 ```
 
