@@ -30,7 +30,7 @@ en_us.json
 
 _Good 👍🏻_
 
-```java
+```kotlin
 class AutoVelocity : Module() {
     @EventTarget
     fun onUpdate(event: UpdateEvent?) {
@@ -47,7 +47,7 @@ if (mc.thePlayer!!.hurtTime <= 0 && mc.thePlayer!!.onGround){
 
 _Bad 👎🏻_
 
-```java
+```kotlin
 class AutoVelocity : Module() {
     @EventTarget
     fun onUpdate(event: UpdateEvent?) {
@@ -216,10 +216,7 @@ _Bad 👎🏻_
 _Good 👍🏻_
 
 ```java
-package just.monika.主播你有反编译我代码的时间还不如自己写一个端子
-package just.monika.开裂我端子的反编译我几行代码死几个妈
-package just.monika.反编译我代码油饼食不食
-package just.monika.主播你有反编译我代码的时间还不如自己写一个端子.主播你IQ行不行啊
+package fuck.you.wuyutong;
 package ExploreSurvival.Game.Load;
 ```
 
@@ -229,6 +226,7 @@ _Bad 👎🏻_
 package today.getvapu;
 package com.client;
 package studios.mcmodule;
+package just.monika.literaturemc.lucky;
 ```
 
 ### 💩 尽可能的在注释留下“为什么”而不是“是什么”和“问题”
@@ -282,3 +280,47 @@ case 2:xxx2();break;
 case ...:...;
 ```
 
+### 💩 使用高效的coremode而不是低效的mixin 
+
+_Good 👍🏻_
+
+```java
+public class ExampleTweaker implements ITweaker {
+
+    private String[] args;
+
+    public void acceptOptions(List<String> args, File gameDir, File assetsDir, String profile) {
+        String[] additionArgs = {"--gameDir", gameDir.getAbsolutePath(), "--assetsDir", assetsDir.getAbsolutePath(), "--version", profile};
+        List<String> fullArgs =  new ArrayList<String>();
+        fullArgs.addAll(args);
+        fullArgs.addAll(Arrays.asList(additionArgs));
+        this.args = fullArgs.toArray(new String[fullArgs.size()]);
+    }
+
+    public void injectIntoClassLoader(LaunchClassLoader classLoader) {
+        classLoader.registerTransformer("com.example.ClassTransformer");
+    }
+
+    public String getLaunchTarget() {
+        return "net.minecraft.client.main.Main";
+    }
+
+    public String[] getLaunchArguments() {
+        return args;
+    }
+}
+```
+
+_Bad 👎🏻_
+
+```java
+package com.example.mixins;
+
+import net.minecraft.client.Minecraft;
+import org.spongepowered.asm.mixin.Mixin;
+
+@Mixin(Minecraft.class)
+public abstract class MixinMinecraft {
+    ......
+}
+```
